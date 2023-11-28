@@ -5,8 +5,8 @@
       <ul>
         <li
           v-for="entityLivingRoom in entitiesLivingRoom"
-          :key="entityLivingRoom.id">
-          {{ entityLivingRoom.name }}
+          :key="entityLivingRoom?.id">
+          {{ entityLivingRoom?.name }}
           <div class="mt-4">
             <label for="modifiedNameLivingRoom">Modified Name:</label>
             <input
@@ -26,6 +26,7 @@
           </div>
           <button @click="modifyEntity(entityLivingRoom.id, modifiedDataLivingRoom)">Modify Entity</button>
         </li>
+
       </ul>
     </div>
 
@@ -34,8 +35,8 @@
       <ul>
         <li
           v-for="entityBedroom in entitiesBedroom"
-          :key="entityBedroom.id">
-          {{ entityBedroom.name }}
+          :key="entityBedroom?.id">
+          {{ entityBedroom?.name }}
           <div class="mt-4">
             <label for="modifiedNameBedroom">Modified Name:</label>
             <input
@@ -63,8 +64,8 @@
       <ul>
         <li
           v-for="entityKitchen in entitiesKitchen"
-          :key="entityKitchen.id">
-          {{ entityKitchen.name }}
+          :key="entityKitchen?.id">
+          {{ entityKitchen?.name }}
           <div class="mt-4">
             <label for="modifiedNameKitchen">Modified Name:</label>
             <input
@@ -94,8 +95,8 @@
         <ul>
           <li
             v-for="entityBathroom in entitiesBathroom"
-            :key="entityBathroom.id">
-            {{ entityBathroom.name }}
+            :key="entityBathroom?.id">
+            {{ entityBathroom?.name }}
             <div class="mt-4">
               <label for="modifiedNameBathroom">Modified Name:</label>
               <input
@@ -143,7 +144,14 @@ export default {
   data() {
     return {
       entities: [],
-      entitiesKitchen: [],
+      entitiesKitchen: [{
+        "id": "289a36cc-cdf6-4b2f-a491-943747686ba9",
+        "name": "Kitchen light 1",
+        "type": "light",
+        "status": "off",
+        "value": null,
+        "created_at": "2020-01-01T00:00:00"
+      }],
       entitiesBedroom: [],
       entitiesBathroom: [],
       entitiesLivingRoom: [],
@@ -153,6 +161,26 @@ export default {
         type: "",
         status: ""
       },
+      modifiedDataLivingRoom: [{
+        name: "",
+        type: "",
+        status: ""
+      }],
+      modifiedDataBedroom: [{
+        name: "",
+        type: "",
+        status: ""
+      }],
+      modifiedDataKitchen: [{
+        name: "",
+        type: "",
+        status: ""
+      }],
+      modifiedDataBathroom: [{
+        name: "",
+        type: "",
+        status: ""
+      }],
       isLoading: false,
       isError: false
     }
