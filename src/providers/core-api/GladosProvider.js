@@ -17,7 +17,7 @@ export default {
   getEntitiesLivingRoom() {
     return coreApiClient.sendRequest("get", "/entities?room=Living Room", {})
   },
-  putEntity(entityId,updatedData) {
+  putEntity(entityId, updatedData) {
     return coreApiClient.sendRequest("put", `/entities/${entityId}`, updatedData)
   }
 }
